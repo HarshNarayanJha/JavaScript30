@@ -5,6 +5,7 @@
 html {
     background-image: radial-gradient(circle, rgba(186, 217, 228, 0.493), rgb(116, 199, 231));
     background-size: cover;
+    /* overflow: hidden; */
 }
 
 body {
@@ -16,7 +17,7 @@ body {
 }
 
 .clock {
-    width: 90%;
+    height: 90vh;
     aspect-ratio: 1;
     border: 20px solid goldenrod;
     border-style: dashed solid;
@@ -29,6 +30,13 @@ body {
     inset 0 0 0 3px #EFEFEF,
     inset 0 0 10px black,
     0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 768px) {
+    .clock {
+        width: 90vw !important;
+        height: unset !important;
+    }
 }
 
 .clock-face {
