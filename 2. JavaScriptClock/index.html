@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS + JavaScript Clock</title>
+    <link rel="shortcut icon" href="https://fav.farm/🕞" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="clock">
+        <div class="clock-face">
+            <div class="hand hour-hand"></div>
+            <div class="hand min-hand"></div>
+            <div class="hand sec-hand"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+
+    <script>
+        const secHand = document.querySelector('.sec-hand');
+        const minHand = document.querySelector('.min-hand');
+        const hourHand = document.querySelector('.hour-hand');
+
+        const hands = document.querySelectorAll(".hand");
+
+        function setDate() {
+            const now = new Date();
+            const millis = now.getMilliseconds();
+            const seconds = now.getSeconds();
+            const minutes = now.getMinutes();
+            const hours = now.getHours();
+
+            const secDeg = 90 + seconds * 6;
+            const minDeg = 90 + minutes * 6;
+            const hourDeg = 90 + hours * 30;
+
+            if (seconds === 0) {
+                hands.forEach(hand => hand.style.transition = 'none');
+            } else if (seconds == 1) {
+                hands.forEach(hand => hand.style.transition = 'all 0.05s cubic-bezier(.63,.18,0,1.88)');
+            }
+
+            secHand.style.transform = `rotate(${secDeg}deg)`;
+            minHand.style.transform = `rotate(${minDeg}deg)`;
+            hourHand.style.transform = `rotate(${hourDeg}deg)`;
+        }
+
+        hands.forEach(hand => hand.style.transition = 'all 1s cubic-bezier(.63,.18,0,1.88)');
+        setDate();
+        setTimeout(function() {
+            hands.forEach(hand => hand.style.transition = 'all 0.05s cubic-bezier(.63,.18,0,1.88)');
+        }, 1000);
+        setTimeout(function() {
+            setInterval(setDate, 1000);
+        }, 10);
+    </script>
+</body>
+</html>
