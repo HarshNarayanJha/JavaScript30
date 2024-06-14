@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    background-color: darkslategrey;
+    color: aliceblue;
+    text-align: center;
+}
+
+p.lead {
+    font-size: 6rem;
+    font-weight: bold;
+    padding: 0;
+    margin: 2rem;
+}
+
+p.sublead {
+    font-size: 2rem;
+    color: grey;
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 3rem;
+}
+
+kbd {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    background-color: black;
+    color: white;
+    font-weight: 900;
+    font-size: 1.25rem;
+    border-radius: 15%;
+}
+
+p {
+    font-weight: 500;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
